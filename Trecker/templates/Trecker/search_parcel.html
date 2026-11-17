@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат пошуку</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #d40000; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        a { color: #d40000; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Результат пошуку</h1>
+    </header>
+    <div class="container">
+        {% if parcel %}
+            <h2 style="color: #28a745;">Посилку знайдено!</h2>
+            <p>Номер: <b>{{ parcel.track_number }}</b></p>
+            <p>Статус: <b>{{ parcel.status }}</b></p>
+            <br><a href="{% url 'parcel_detail' parcel.track_number %}">Переглянути деталі посилки &rarr;</a>
+        {% else %}
+            <h2 style="color: #d40000;">Посилку не знайдено</h2>
+            <p>Спробуйте інший трек-номер або перевірте правильність вводу.</p>
+        {% endif %}
+        <br><br><a href="{% url 'home' %}">&larr; На головну</a>
+    </div>
+</body>
+</html>

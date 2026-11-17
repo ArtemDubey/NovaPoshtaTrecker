@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Трекінг посилок</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #d40000; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        input[type="text"] { width: 70%; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; }
+        button { background-color: #d40000; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; margin-left: 5px; }
+        button:hover { background-color: #b00000; }
+        a { color: #d40000; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        .menu { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Експрес-Трекінг Посилок</h1>
+    </header>
+    <div class="container">
+        <h2>Знайти посилку за трек-номером</h2>
+        <form action="{% url 'search' %}" method="get">
+            <input type="text" name="track" placeholder="Напр. UA1234567890" required>
+            <button type="submit">Шукати</button>
+        </form>
+        <div class="menu">
+            <p><a href="{% url 'parcel_list' %}">📦 Переглянути всі посилки (5)</a></p>
+        </div>
+    </div>
+</body>
+</html>

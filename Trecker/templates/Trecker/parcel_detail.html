@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Деталі посилки</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #d40000; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        p { font-size: 16px; line-height: 1.5; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        a { color: #d40000; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        .nav-links { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Посилка № {{ parcel.track_number }}</h1>
+    </header>
+    <div class="container">
+        <p><b>Відправник:</b> {{ parcel.sender }}</p>
+        <p><b>Отримувач:</b> {{ parcel.receiver }}</p>
+        <p><b>Вага:</b> {{ parcel.weight }}</p>
+        <p><b>Тип:</b> {{ parcel.type }}</p>
+        <p><b>Маршрут:</b> {{ parcel.origin }} ➔ {{ parcel.destination }}</p>
+        <p><b>Поточний статус:</b> <span style="color: #d40000;">{{ parcel.status }}</span></p>
+
+        <div class="nav-links">
+            <a href="{% url 'parcel_list' %}">&larr; Назад до списку</a> |
+            <a href="{% url 'home' %}">На головну</a>
+        </div>
+    </div>
+</body>
+</html>
